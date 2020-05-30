@@ -1,16 +1,32 @@
 {
-  "name": "vispeech-asr",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "asr-vietspeech",
+  "version": "1.0.16",
+  "description": "Asr Vietspech library for convert audio to text with Vietnamese language.",
+  "repository": "trankhanhlinh/vispeech-asr",
+  "main": "build/index.js",
+  "keywords": [
+    "asr vietspeech apis client",
+    "asr vietspeech api client",
+    "asr vietspeech apis",
+    "asr vietspeech api",
+    "asr vietspeech",
+    "asr vietspeech platform",
+    "asr vietspeech ",
+    "asr",
+    "asr vietspeech",
+    "speech",
+    "Asr VietSpeech API"
+  ],
   "scripts": {
+    "compile": "tsc -p . && cp -r protos build/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "cross-fetch": "^3.0.4",
     "form-data": "^3.0.0",
-    "fs": "0.0.1-security"
+    "typescript": "^3.9.3"
   }
 }

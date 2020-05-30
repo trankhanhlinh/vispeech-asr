@@ -12,7 +12,8 @@ ASR VietSpeech Library for Node.js
 * [ASR VietSpeech Library API Reference][client-docs]
 * [ASR VietSpeech Library Documentation][product-docs]
 * [https://github.com/trankhanhlinh/vispeech-asr](https://github.com/trankhanhlinh/vispeech-asr)
-
+[client-docs]: http://asr.vietspeech.com:3200/docs
+[product-docs]: http://asr.vietspeech.com:3200/guidline
 **Table of contents:**
 
 
@@ -31,51 +32,46 @@ ASR VietSpeech Library for Node.js
 1.  [Register a account in ASR system][projects].
 1.  [Use API key free or buyer a new one][enable_api].
 
+[projects]: http://asr.vietspeech.com:3200/register
+[enable_api]: http://asr.vietspeech.com:3200/customer
 ### Installing the client library
 
 ```bash
-npm install asr-vispeech
+npm install asr-vietspeech
 ```
 
 
 ### Using the client library
 
 ```javascript
-async function main() {
-  // Imports the Asr Vispeech library
-  const ViSpeech = require('asr-vispeech');
-  const fs = require('fs');
+const ViSpeech = require('asr-vietspeech');
+const fs = require('fs');
 
-  // Creates a client
-  const vispeech = new ViSpeech();
+// The name of the audio file to trascript
+const fileName = __dirname + '\\files\\audio.wav';
+console.info(`Filename ${fileName}`);
 
-  // The name of the audio file to transcribe
-  const fileName = './resources/audio.raw';
+// Reads a local audio file and converts it to base64
+const file = fs.createReadStream(fileName);
+file.setEncoding('utf8')
 
-  // Reads a local audio file and converts it to base64
-  const file = fs.readFileSync(fileName);
-  const audioBytes = file.toString('base64');
+// The audio file's encoding, sample rate in hertz, timeout, maxSize, token
+const config = {
+    token: process.env.API_KEY, // set api key get from asr system 
+    encoding: 'LINEAR16', // set encoding
+    sampleRateHertz: 16000, // set rate Hz
+    timeout: 10000, // 10 seconds
+    maxSize: 51200 // 50 Mb
+};
+const asrViSpeech = new ViSpeech(config);
 
-  // The audio file's encoding, sample rate in hertz, and BCP-47 language code
-  const audio = {
-    content: audioBytes,
-  };
-
-  const config = {
-    encoding: 'LINEAR16',
-    sampleRateHertz: 16000,
-  };
-  const request = {
-    audio: audio,
-    config: config,
-  };
-
-  // Detects speech in the audio file
-  const response = await vispeech.call(request);
-  console.log(`Transcription: ${response}`);
-}
-main().catch(console.error);
-
+asrViSpeech.call(file).then(result => {
+    console.info(`Response ${JSON.stringify(result)}`)
+    res.status(200).send(result.text);
+}).catch(err => {
+    console.error('Api key invalid', err);
+    res.status(401).send(err.message);
+})
 ```
 
 
