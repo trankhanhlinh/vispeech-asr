@@ -1,6 +1,5 @@
 const FormData = require('form-data')
 const fetch = require('cross-fetch')
-const fs = require('fs')
 
 const speechToText = request => {
     const { audio, config, token } = request
