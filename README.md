@@ -12,8 +12,7 @@ ASR VietSpeech Library for Node.js
 * [ASR VietSpeech Library API Reference][client-docs]
 * [ASR VietSpeech Library Documentation][product-docs]
 * [https://github.com/trankhanhlinh/vispeech-asr](https://github.com/trankhanhlinh/vispeech-asr)
-[client-docs]: http://asr.vietspeech.com:3200/docs
-[product-docs]: http://asr.vietspeech.com:3200/guidline
+
 **Table of contents:**
 
 
@@ -111,3 +110,7 @@ is stable; the code surface will not change in backwards-incompatible ways
 unless absolutely necessary (e.g. because of critical security issues) or with
 an extensive deprecation period. Issues and requests against **GA** libraries
 are addressed with the highest priority.
+
+
+[client-docs]: http://asr.vietspeech.com:3200/docs
+[product-docs]: http://asr.vietspeech.com:3200/guidline
