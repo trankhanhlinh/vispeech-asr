@@ -1,7 +1,7 @@
 # [Speech to text: Node.js Client](https://github.com/trankhanhlinh/vispeech-asr)
 
 [![release level](https://img.shields.io/badge/release%20level-general%20availability%20%28GA%29-brightgreen.svg?style=flat)]()
-[![npm version](https://img.shields.io/npm/v/@google-cloud/speech.svg)](https://www.npmjs.org/package/vispeech-asr)
+[![npm version](https://img.shields.io/npm/v/@google-cloud/speech.svg)](https://www.npmjs.org/package/asr-vietspeech)
 
 
 
@@ -31,8 +31,6 @@ ASR VietSpeech Library for Node.js
 1.  [Register a account in ASR system][projects].
 1.  [Use API key free or buyer a new one][enable_api].
 
-[projects]: http://asr.vietspeech.com:3200/register
-[enable_api]: http://asr.vietspeech.com:3200/customer
 ### Installing the client library
 
 ```bash
@@ -114,3 +112,5 @@ are addressed with the highest priority.
 
 [client-docs]: http://asr.vietspeech.com:3200/docs
 [product-docs]: http://asr.vietspeech.com:3200/guidline
+[projects]: http://asr.vietspeech.com:3200/register
+[enable_api]: http://asr.vietspeech.com:3200/customer
